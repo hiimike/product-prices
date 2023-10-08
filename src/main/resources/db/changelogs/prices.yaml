@@ -1,0 +1,116 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: carlos.g
+      changes:
+        - insert:
+            tableName: PRICE
+            columns:
+              - column:
+                  name: BRAND_ID
+                  valueNumeric: "1"
+              - column:
+                  name: START_DATE
+                  valueDate: "2020-06-14 00:00:00"
+              - column:
+                  name: END_DATE
+                  valueDate: "2020-12-31 23:59:59"
+              - column:
+                  name: PRICE_LIST
+                  valueNumeric: "1"
+              - column:
+                  name: PRODUCT_ID
+                  valueNumeric: "35455"
+              - column:
+                  name: PRIORITY
+                  valueNumeric: "0"
+              - column:
+                  name: VALUE
+                  valueNumeric: "35.50"
+              - column:
+                  name: CURRENCY
+                  value: "EUR"
+
+        - insert:
+            tableName: PRICE
+            columns:
+              - column:
+                  name: BRAND_ID
+                  valueNumeric: "1"
+              - column:
+                  name: START_DATE
+                  valueDate: "2020-06-14 15:00:00"
+              - column:
+                  name: END_DATE
+                  valueDate: "2020-06-14 18:30:00"
+              - column:
+                  name: PRICE_LIST
+                  valueNumeric: "2"
+              - column:
+                  name: PRODUCT_ID
+                  valueNumeric: "35455"
+              - column:
+                  name: PRIORITY
+                  valueNumeric: "1"
+              - column:
+                  name: VALUE
+                  valueNumeric: "25.45"
+              - column:
+                  name: CURRENCY
+                  value: "EUR"
+
+        - insert:
+            tableName: PRICE
+            columns:
+              - column:
+                  name: BRAND_ID
+                  valueNumeric: "1"
+              - column:
+                  name: START_DATE
+                  valueDate: "2020-06-15 00:00:00"
+              - column:
+                  name: END_DATE
+                  valueDate: "2020-06-15 11:00:00"
+              - column:
+                  name: PRICE_LIST
+                  valueNumeric: "3"
+              - column:
+                  name: PRODUCT_ID
+                  valueNumeric: "35455"
+              - column:
+                  name: PRIORITY
+                  valueNumeric: "1"
+              - column:
+                  name: VALUE
+                  valueNumeric: "30.50"
+              - column:
+                  name: CURRENCY
+                  value: "EUR"
+
+        - insert:
+            tableName: PRICE
+            columns:
+              - column:
+                  name: BRAND_ID
+                  valueNumeric: "1"
+              - column:
+                  name: START_DATE
+                  valueDate: "2020-06-15 16:00:00"
+              - column:
+                  name: END_DATE
+                  valueDate: "2020-12-31 23:59:59"
+              - column:
+                  name: PRICE_LIST
+                  valueNumeric: "4"
+              - column:
+                  name: PRODUCT_ID
+                  valueNumeric: "35455"
+              - column:
+                  name: PRIORITY
+                  valueNumeric: "1"
+              - column:
+                  name: VALUE
+                  valueNumeric: "38.95"
+              - column:
+                  name: CURRENCY
+                  value: "EUR"

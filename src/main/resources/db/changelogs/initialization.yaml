@@ -1,0 +1,76 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: carlos.g
+      changes:
+        - createTable:
+            tableName: brand
+            columns:
+              - column:
+                  name: ID
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: carlos.g
+      changes:
+        - createTable:
+            tableName: PRICE
+            columns:
+              - column:
+                  name: ID
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: BRAND_ID
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_brand_id
+                    references: brand(id)
+                    nullable: false
+              - column:
+                  name: START_DATE
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: END_DATE
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PRICE_LIST
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PRODUCT_ID
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PRIORITY
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: VALUE
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: CURRENCY
+                  type: varchar(3)
+                  constraints:
+                    nullable: false

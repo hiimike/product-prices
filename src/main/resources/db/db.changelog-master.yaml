@@ -2,3 +2,9 @@ databaseChangeLog:
   - include:
       file: changelogs/initialization.yaml
       relativeToChangelogFile: true
+  - include:
+      file: changelogs/brand.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changelogs/prices.yaml
+      relativeToChangelogFile: true

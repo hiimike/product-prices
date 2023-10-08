@@ -1,7 +1,8 @@
 databaseChangeLog:
   - changeSet:
-      id: 4
+      id: insert-prices
       author: carlos.g
+      labels: data
       changes:
         - insert:
             tableName: PRICE
@@ -25,7 +26,7 @@ databaseChangeLog:
                   name: PRIORITY
                   valueNumeric: "0"
               - column:
-                  name: VALUE
+                  name: PRICE
                   valueNumeric: "35.50"
               - column:
                   name: CURRENCY
@@ -53,7 +54,7 @@ databaseChangeLog:
                   name: PRIORITY
                   valueNumeric: "1"
               - column:
-                  name: VALUE
+                  name: PRICE
                   valueNumeric: "25.45"
               - column:
                   name: CURRENCY
@@ -81,7 +82,7 @@ databaseChangeLog:
                   name: PRIORITY
                   valueNumeric: "1"
               - column:
-                  name: VALUE
+                  name: PRICE
                   valueNumeric: "30.50"
               - column:
                   name: CURRENCY
@@ -109,7 +110,7 @@ databaseChangeLog:
                   name: PRIORITY
                   valueNumeric: "1"
               - column:
-                  name: VALUE
+                  name: PRICE
                   valueNumeric: "38.95"
               - column:
                   name: CURRENCY

@@ -1,9 +1,7 @@
 package com.ecommerce.productprices.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import lombok.*;
 
 import javax.persistence.Column;
 import java.math.BigDecimal;
@@ -13,9 +11,17 @@ import java.time.LocalDateTime;
 @Table(name = "PRICE")
 @Getter
 @Setter
-public class PriceEntity extends AbstractPersistable<Long> {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PriceEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "price_seq")
+    @SequenceGenerator(name = "price_seq", sequenceName = "PRICE_SEQ", allocationSize = 1, initialValue = 1000)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "BRAND_ID", nullable = false)
     private BrandEntity brand;
 
@@ -34,8 +40,8 @@ public class PriceEntity extends AbstractPersistable<Long> {
     @Column(name = "PRIORITY")
     private Integer priority;
 
-    @Column(name = "VALUE")
-    private BigDecimal value;
+    @Column(name = "PRICE")
+    private BigDecimal price;
 
     @Column(name = "CURRENCY")
     private String currency;

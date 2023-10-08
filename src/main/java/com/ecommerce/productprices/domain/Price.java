@@ -5,18 +5,16 @@ import java.time.LocalDateTime;
 
 import lombok.*;
 
-@Getter
 @Builder
-@AllArgsConstructor
-public class Price {
+public record Price(
+        Brand brand,
+        LocalDateTime startDate,
+        LocalDateTime endDate,
+        int priceList,
+        Long productId,
+        int priority,
+        BigDecimal value,
+        String curr) {
 
-    private String brandName;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private int priceList;
-    private Long productId;
-    private int priority;
-    private BigDecimal value;
-    private String curr;
 }
 

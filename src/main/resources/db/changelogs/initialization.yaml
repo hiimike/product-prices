@@ -1,10 +1,11 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
+      id: create-brand-table
       author: carlos.g
+      labels: master
       changes:
         - createTable:
-            tableName: brand
+            tableName: BRAND
             columns:
               - column:
                   name: ID
@@ -19,8 +20,9 @@ databaseChangeLog:
                   constraints:
                     nullable: false
   - changeSet:
-      id: 2
+      id: create-price-table
       author: carlos.g
+      labels: master
       changes:
         - createTable:
             tableName: PRICE
@@ -65,7 +67,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: VALUE
+                  name: PRICE
                   type: decimal(10,2)
                   constraints:
                     nullable: false
@@ -74,3 +76,5 @@ databaseChangeLog:
                   type: varchar(3)
                   constraints:
                     nullable: false
+
+

@@ -16,13 +16,13 @@ public record PriceResponseV1(
 ) {
     public static PriceResponseV1 fromDomain(Price price) {
         return new PriceResponseV1(
-                price.getBrandName(),
-                price.getPriceList(),
-                price.getStartDate(),
-                price.getEndDate(),
-                price.getValue(),
-                price.getCurr(),
-                price.getProductId()
+                price.brand().name(),
+                price.priceList(),
+                price.startDate(),
+                price.endDate(),
+                price.value(),
+                price.curr(),
+                price.productId()
         );
     }
 

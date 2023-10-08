@@ -19,7 +19,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping(value = V1API.BASE_URL)
 @RestController
-public class GetCurrentPriceByProductController {
+public class GetTopPriceByProductController {
 
     private final PriceService priceService;
 

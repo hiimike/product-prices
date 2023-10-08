@@ -16,8 +16,7 @@ public class PriceService {
 
     public Optional<Price> findPrice(LocalDateTime applicationDate, String productId, String brandId) {
         try {
-            return priceRepository.findOne(
-                    applicationDate,
+            return priceRepository.findTopPrice(
                     applicationDate,
                     Long.parseLong(productId),
                     Long.parseLong(brandId)

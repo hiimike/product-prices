@@ -1,7 +1,8 @@
 databaseChangeLog:
   - changeSet:
-      id: 3
-      author: carlos
+      id: insert-brands
+      author: carlos.g
+      labels: data
       changes:
         - insert:
             tableName: BRAND

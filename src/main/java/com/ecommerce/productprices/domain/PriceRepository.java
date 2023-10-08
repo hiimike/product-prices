@@ -5,6 +5,6 @@ import java.util.Optional;
 
 public interface PriceRepository {
 
-    Optional<Price> findOne(LocalDateTime startDate, LocalDateTime endDate, Long productId, Long brandId);
+    Optional<Price> findTopPrice(LocalDateTime startDate, Long productId, Long brandId);
 
 }

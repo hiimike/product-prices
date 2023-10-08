@@ -11,14 +11,13 @@ import java.util.Optional;
 @Repository
 public interface PriceJpaRepository extends JpaRepository<PriceEntity, Long> {
 
-    @Query(value = "SELECT * FROM price " +
-            "WHERE start_date <= :startDate " +
-            "AND end_date >= :endDate " +
-            "AND product_id = :productId " +
-            "AND brand_id = :brandId " +
-            "ORDER BY priority " +
-            "DESC LIMIT 1",
-            nativeQuery = true)
-    Optional<PriceEntity> findPriorityPrice(LocalDateTime startDate, LocalDateTime endDate, Long productId, Long brandId);
+    @Query("SELECT p FROM PriceEntity p " +
+            "WHERE :startDate BETWEEN p.startDate AND p.endDate " +
+            "AND p.productId = :productId " +
+            "AND p.brand.id = :brandId " +
+            "ORDER BY p.priority DESC, p.priceList " +
+            "LIMIT 1")
+    Optional<PriceEntity> findTopPrice(LocalDateTime startDate, Long productId, Long brandId);
+
 
 }

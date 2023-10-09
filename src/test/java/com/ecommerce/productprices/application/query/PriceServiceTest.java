@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PriceServiceTest {
+class PriceServiceTest {
 
     private PriceRepository priceRepository;
     private PriceService priceService;

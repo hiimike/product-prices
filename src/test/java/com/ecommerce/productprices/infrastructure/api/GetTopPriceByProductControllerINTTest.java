@@ -51,7 +51,6 @@ class GetTopPriceByProductControllerINTTest {
         brandIdParam = "1";
         dateParam = LocalDateTime.now();
         GetTopPriceByProductController controller = new GetTopPriceByProductController(priceService);
-        //jackson2HttpMessageConverter.setObjectMapper(new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE));
         mockMvc = MockMvcBuilders.standaloneSetup(
                 controller, new GlobalExceptionHandler())
                 .setMessageConverters(jackson2HttpMessageConverter)

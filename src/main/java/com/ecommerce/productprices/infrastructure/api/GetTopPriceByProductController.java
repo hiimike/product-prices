@@ -1,7 +1,7 @@
 package com.ecommerce.productprices.infrastructure.api;
 
 
-import com.ecommerce.productprices.application.query.PriceService;
+import com.ecommerce.productprices.application.port.out.GetApplicablePrice;
 import com.ecommerce.productprices.domain.Price;
 import com.ecommerce.productprices.infrastructure.api.internal.V1API;
 import com.ecommerce.productprices.infrastructure.api.response.PriceResponseV1;
@@ -21,7 +21,7 @@ import java.util.Optional;
 @RestController
 public class GetTopPriceByProductController {
 
-    private final PriceService priceService;
+    private final GetApplicablePrice getApplicablePrice;
 
     @GetMapping("/price/{product_id}")
     @Operation(summary = "Retrieve a price based on date, product ID, and brand ID")
@@ -42,7 +42,7 @@ public class GetTopPriceByProductController {
             @Parameter(description = "Brand ID")
             String brandId) {
 
-        Optional<Price> priceOpt = priceService.findPrice(applicationDate, productId, brandId);
+        Optional<Price> priceOpt = getApplicablePrice.handle(applicationDate, productId, brandId);
 
         return priceOpt.map(this::toPriceResponse)
                 .orElseGet(() -> ResponseEntity.notFound().build());

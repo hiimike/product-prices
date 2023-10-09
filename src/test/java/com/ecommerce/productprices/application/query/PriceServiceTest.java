@@ -1,5 +1,6 @@
 package com.ecommerce.productprices.application.query;
 
+import com.ecommerce.productprices.application.port.out.GetApplicablePrice;
 import com.ecommerce.productprices.domain.Price;
 import com.ecommerce.productprices.domain.PriceMother;
 import com.ecommerce.productprices.domain.PriceRepository;
@@ -16,12 +17,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PriceServiceTest {
 
     private PriceRepository priceRepository;
-    private PriceService priceService;
+    private GetApplicablePrice getApplicablePrice;
 
     @BeforeEach
     void setUp() {
         priceRepository = Mockito.mock(PriceRepository.class);
-        priceService = new PriceService(priceRepository);
+        getApplicablePrice = new PriceService(priceRepository);
     }
 
     @Test
@@ -35,7 +36,7 @@ class PriceServiceTest {
                 .findTopPrice(Mockito.any(), Mockito.any(), Mockito.any());
 
         // When
-        Optional<Price> actual = priceService.findPrice(LocalDateTime.now(), productId, brandId);
+        Optional<Price> actual = getApplicablePrice.handle(LocalDateTime.now(), productId, brandId);
 
         // Then
         assertThat(actual).isNotEmpty().contains(expected);
@@ -51,7 +52,7 @@ class PriceServiceTest {
 
         // Then
         Assertions.assertThrows(NumberFormatException.class,
-                () -> priceService.findPrice(LocalDateTime.now(), productId, brandId));
+                () -> getApplicablePrice.handle(LocalDateTime.now(), productId, brandId));
     }
 
     @Test
@@ -64,6 +65,6 @@ class PriceServiceTest {
 
         // Then
         Assertions.assertThrows(NumberFormatException.class,
-                () -> priceService.findPrice(LocalDateTime.now(), productId, brandId));
+                () -> getApplicablePrice.handle(LocalDateTime.now(), productId, brandId));
     }
 }

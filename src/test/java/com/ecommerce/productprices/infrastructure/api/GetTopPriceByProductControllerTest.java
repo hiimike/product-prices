@@ -1,5 +1,6 @@
 package com.ecommerce.productprices.infrastructure.api;
 
+import com.ecommerce.productprices.application.port.out.GetApplicablePrice;
 import com.ecommerce.productprices.application.query.PriceService;
 import com.ecommerce.productprices.domain.Price;
 import com.ecommerce.productprices.domain.PriceMother;
@@ -31,7 +32,7 @@ class GetTopPriceByProductControllerTest {
     private String brandIdParam;
     private String productIdParam;
 
-    private PriceService priceService;
+    private GetApplicablePrice getApplicablePrice;
     private MockMvc mockMvc;
 
 
@@ -40,8 +41,8 @@ class GetTopPriceByProductControllerTest {
         productIdParam = String.valueOf(faker.number().randomNumber());
         brandIdParam = String.valueOf(faker.number().randomNumber());
         dateParam = LocalDateTime.now();
-        priceService = Mockito.mock(PriceService.class);
-        GetTopPriceByProductController controller = new GetTopPriceByProductController(priceService);
+        getApplicablePrice = Mockito.mock(PriceService.class);
+        GetTopPriceByProductController controller = new GetTopPriceByProductController(getApplicablePrice);
         mockMvc = MockMvcBuilders.standaloneSetup(controller, new GlobalExceptionHandler())
                 .build();
     }
@@ -62,7 +63,7 @@ class GetTopPriceByProductControllerTest {
         // Given
         Price price = PriceMother.random();
         Mockito.doReturn(Optional.of(price))
-                .when(priceService).findPrice(Mockito.any(), Mockito.any(), Mockito.any());
+                .when(getApplicablePrice).handle(Mockito.any(), Mockito.any(), Mockito.any());
 
         // When
 
